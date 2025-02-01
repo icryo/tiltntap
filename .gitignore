@@ -12,8 +12,16 @@ export.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Web export files
+*.wasm
+*.pck
+index.*
+_exports/
+
+# System files
 .DS_Store
-/export
+**/.DS_Store
 
 # My ignores
 *.tmp

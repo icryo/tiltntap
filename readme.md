@@ -1,24 +1,51 @@
-![LibreAim](https://img.itch.zone/aW1nLzE3MTA3NTQzLnBuZw==/original/8acskw.png)
+# TiltNTap
 
-Free and open source FPS aim trainer made with Godot 4.3.
+A web-based aim trainer focused on simplicity and performance. Built with Godot 4.3.
 
-- **✏️ Customizable**: Libre Aim is open source, and offers a lot of customization settings.
-- **🕊️ Lightweight**: This is a training tool, it doesn't need fancy graphics, but it needs to run on low-end machines, give a high ammount of fps, and have minimal input lag.
+## Features
 
-![Play custom scenarios](https://img.itch.zone/aW1nLzE3MTA3NDk1LmdpZg==/original/R9oMNM.gif)
+- Browser-based aim training with no installation required
+- Precise sensitivity control (up to 2 decimal places)
+- Direct Counter-Strike 2 sensitivity conversion
+- Clean, minimalist interface
+- Multiple aim training modes:
+  - Horizontal targets
+  - Moving targets
+  - Random targets
+  - Tracking targets
 
-![Track your progress](https://img.itch.zone/aW1nLzE3MTA3Nzc0LnBuZw==/original/250RkK.png)
+## Usage
 
-![Change the world appareance](https://img.itch.zone/aW1nLzE3MTA3NDY2LnBuZw==/original/pIIvv9.png)
+1. Visit the web version at [your-deployment-url]
+2. Set your sensitivity:
+   - Use the slider for quick adjustments
+   - Type exact values (up to 2 decimal places)
+   - Values automatically sync with settings menu
+3. Select a training mode and start practicing
 
-![Create a custom crosshair](https://img.itch.zone/aW1nLzE3MTA3ODAxLnBuZw==/original/4EPxXR.png)
+## Development
 
+This project uses Godot 4.3. To develop locally:
 
-> Libre Aim is currently in a very early stage of development, so don't expect too much out of it, it was originally forked from [Open Aim Trainer](https://github.com/erkkon/OpenAimTrainer).
+1. Download Godot 4.3 Standard version
+2. Import the project
+3. Use the web export template for testing
 
-## Free, open source
-Libre Aim is open source. Feel free to do whatever you want with it: Fork it, modify it,  use the code for other projects...
+### Web Export
 
-You can also contribute to the project, we have a [Discord community](discord.gg/u2Hm8sMagF)!
+The project is configured for web deployment with:
+- Optimized HTML5/WebGL export settings
+- Compressed assets for faster loading
+- Mobile-friendly viewport configuration
 
-![Screenshot](https://img.itch.zone/aW1nLzE3MTA3NjMyLmpwZw==/original/OJpGqx.jpg)
+## Deployment
+
+For optimal web performance, we recommend:
+- Using a CDN for static assets
+- Enabling gzip compression for .pck and .wasm files
+- Setting appropriate cache headers
+- Using a modern web server (Nginx/Apache)
+
+## Credits
+
+TiltNTap is based on [LibreAim](https://github.com/Nokorpo/LibreAim), an open-source aim trainer. Modified for web-first deployment with streamlined features.

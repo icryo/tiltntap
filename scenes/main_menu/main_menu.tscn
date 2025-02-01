@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c8on0ngoa3108"]
+[gd_scene load_steps=21 format=3 uid="uid://c8on0ngoa3108"]
 
 [ext_resource type="Theme" uid="uid://caf1fphx2xqt0" path="res://assets/themes/main_menu.tres" id="1_2h7x4"]
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_p06gh"]
@@ -6,10 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://m5gaiq7pjwbv" path="res://assets/images/icons/settings.svg" id="3_8dqwy"]
 [ext_resource type="Script" path="res://scenes/main_menu/show_version.gd" id="3_kmn6w"]
 [ext_resource type="Texture2D" uid="uid://c4b2m50txi00g" path="res://icon.svg" id="3_kq7as"]
-[ext_resource type="Texture2D" uid="uid://tkfbioukscgd" path="res://assets/images/icons/git.svg" id="4_nuriq"]
 [ext_resource type="Texture2D" uid="uid://cmrheauks0nru" path="res://assets/images/icons/cross.svg" id="5_nidys"]
 [ext_resource type="PackedScene" uid="uid://cropshnueuiqr" path="res://scenes/main_menu/settings/settings.tscn" id="8_1n7gf"]
-[ext_resource type="Texture2D" uid="uid://crtp1xg7nyhki" path="res://assets/images/icons/folder.svg" id="8_cvdmj"]
 [ext_resource type="PackedScene" uid="uid://bx5lej1m0kvgb" path="res://scenes/main_menu/select_gamemode.tscn" id="9_lii3m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfoy0"]
@@ -55,6 +53,9 @@ grow_vertical = 2
 theme = ExtResource("1_2h7x4")
 script = ExtResource("1_p06gh")
 
+[node name="MainContainer" type="Control" parent="."]
+layout_mode = 2
+
 [node name="LeftControl" type="MarginContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -68,30 +69,55 @@ theme_override_constants/separation = 30
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LeftControl/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LeftControl/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="LeftControl/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-
-[node name="Title" type="Label" parent="LeftControl/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 42
-text = "Libre Aim"
-
-[node name="Label" type="Label" parent="LeftControl/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.662745, 0.662745, 0.662745, 1)
-theme_override_font_sizes/font_size = 16
-text = "Version"
-script = ExtResource("3_kmn6w")
-
-[node name="Icon" type="TextureRect" parent="LeftControl/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(84, 84)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 texture = ExtResource("3_kq7as")
 expand_mode = 1
+
+[node name="Label" type="Label" parent="LeftControl/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 57
+text = "TiltNTap"
+vertical_alignment = 1
+
+[node name="Version" type="Label" parent="LeftControl/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 0.501961)
+theme_override_font_sizes/font_size = 16
+text = "v0.0.0"
+script = ExtResource("3_kmn6w")
+
+[node name="SensitivityContainer" type="VBoxContainer" parent="LeftControl/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="LeftControl/VBoxContainer/SensitivityContainer"]
+layout_mode = 2
+text = "Mouse Sensitivity"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LeftControl/VBoxContainer/SensitivityContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SensitivitySlider" type="HSlider" parent="LeftControl/VBoxContainer/SensitivityContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.01
+max_value = 5.0
+step = 0.01
+value = 0.5
+
+[node name="SensitivityInput" type="LineEdit" parent="LeftControl/VBoxContainer/SensitivityContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "0.50"
+alignment = 1
+max_length = 5
+virtual_keyboard_type = 2
 
 [node name="Play" type="Button" parent="LeftControl/VBoxContainer"]
 layout_mode = 2
@@ -107,26 +133,20 @@ text = "Settings"
 icon = ExtResource("3_8dqwy")
 alignment = 0
 
-[node name="UserFolder" type="Button" parent="LeftControl/VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-text = "User folder"
-icon = ExtResource("8_cvdmj")
-alignment = 0
-
-[node name="SourceCode" type="Button" parent="LeftControl/VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-text = "Source code"
-icon = ExtResource("4_nuriq")
-alignment = 0
-
 [node name="Quit" type="Button" parent="LeftControl/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Quit"
 icon = ExtResource("5_nidys")
 alignment = 0
+
+[node name="Credit" type="Label" parent="LeftControl/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 12
+text = "Based on LibreAim"
+horizontal_alignment = 0
+vertical_alignment = 2
 
 [node name="RightControl" type="Panel" parent="."]
 layout_mode = 2
@@ -143,6 +163,4 @@ layout_mode = 1
 
 [connection signal="pressed" from="LeftControl/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="LeftControl/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="LeftControl/VBoxContainer/UserFolder" to="." method="_on_user_folder_pressed"]
-[connection signal="pressed" from="LeftControl/VBoxContainer/SourceCode" to="." method="_on_source_code_pressed"]
 [connection signal="pressed" from="LeftControl/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

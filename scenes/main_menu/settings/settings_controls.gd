@@ -2,15 +2,11 @@ extends Control
 ## Controls settings
 
 const games_sensitivities: Dictionary = {
-	"Counter Strike 2": 0.022,
-	"Apex Legends": 0.022,
-	"Team Fortress 2": 0.022,
-	"Valorant": 0.07,
+	"Counter Strike 2": 0.022
 }
 
 @onready var game: OptionButton = $Game
 @onready var sensitivity: Control = $Sensitivity
-
 
 var data_wrapper:DataManager.SectionWrapper:
 	get:
@@ -28,10 +24,10 @@ func _ready() -> void:
 	game.item_selected.connect(_on_game_item_selected)
 
 func _on_sensitivity_change_value(value) -> void:
-	data_wrapper.set_data("sensitivity_game", game.get_item_text(game.get_item_index(game.get_selected_id())))
-	data_wrapper.set_data("sensitivity_game_value", games_sensitivities.get(game.get_item_text(game.get_selected_id())) )
+	data_wrapper.set_data("sensitivity_game", "Counter Strike 2")
+	data_wrapper.set_data("sensitivity_game_value", 0.022)
 	data_wrapper.set_data("sensitivity", float(value))
 
 func _on_game_item_selected(index: int) -> void:
-	data_wrapper.set_data("sensitivity_game", game.get_item_text(index))
-	data_wrapper.set_data("sensitivity_game_value", games_sensitivities.get(game.get_item_text(index)))
+	data_wrapper.set_data("sensitivity_game", "Counter Strike 2")
+	data_wrapper.set_data("sensitivity_game_value", 0.022)
