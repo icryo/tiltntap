@@ -145,7 +145,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
 theme_override_font_sizes/font_size = 12
 text = "Based on LibreAim"
-horizontal_alignment = 0
 vertical_alignment = 2
 
 [node name="RightControl" type="Panel" parent="."]
